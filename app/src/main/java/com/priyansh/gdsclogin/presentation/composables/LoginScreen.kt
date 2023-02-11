@@ -95,51 +95,37 @@ fun LoginPage(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        TextField(
+        LoginTextField(
             value = username.value,
-            onValueChange = {
+            onvalueChange = {
                 username.value = it
             },
-            singleLine = true,
-            placeholder = { Text(text = "Username") },
-            shape = RoundedCornerShape(20.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFFF0B644),
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                disabledIndicatorColor = Color.Transparent
-            ),
+            placeHolder = "Username",
             trailingIcon = {
-                Icon(imageVector = Icons.Default.Person, contentDescription = "UserEmail")
+                Icon(imageVector = Icons.Default.Person, contentDescription = "Username")
             }
         )
 
-        TextField(
-            value = password.value,
-            onValueChange = {
+        LoginTextField(
+            value = password.value ,
+            onvalueChange = {
                 password.value = it
             },
-            singleLine = true,
-            placeholder = { Text(text = "Password") },
-            shape = RoundedCornerShape(20.dp),
-            colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFFF0B644),
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                disabledIndicatorColor = Color.Transparent
-            ),
+            placeHolder = "Password",
             trailingIcon = {
-                IconButton(onClick = {
-                    passwordVisibility.value = !passwordVisibility.value
-                }) {
+                IconButton(
+                    onClick = {
+                        passwordVisibility.value = !passwordVisibility.value
+                    }
+                ) {
                     Icon(
-                        painter = icon,
+                        painter = icon ,
                         contentDescription = "password"
                     )
                 }
             },
-            visualTransformation = if(passwordVisibility.value) VisualTransformation.None
-                                    else PasswordVisualTransformation()
+            visualTransformation = if (passwordVisibility.value) VisualTransformation.None
+            else PasswordVisualTransformation()
         )
 
         Spacer(modifier = Modifier.height(30.dp))
